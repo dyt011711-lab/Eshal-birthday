@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Eshal Noor 💗</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ffd6e7,#fff0f6,#ffc1dc);
+    min-height:100vh;
+    color:#7a2148;
+    overflow-x:hidden;
+}
+
+.heart{
+    position:fixed;
+    color:#ff5c9a;
+    font-size:22px;
+    animation:float 7s linear infinite;
+    opacity:.7;
+    z-index:0;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) rotate(0deg);
+        opacity:0;
+    }
+    20%{opacity:.8;}
+    100%{
+        transform:translateY(-10vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    margin:auto;
+    padding:25px 18px 50px;
+    text-align:center;
+}
+
+.opening{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.gift{
+    font-size:85px;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+.opening h1{
+    font-size:30px;
+    margin:20px 0 10px;
+}
+
+.opening p{
+    font-size:17px;
+    margin-bottom:30px;
+}
+
+button{
+    border:none;
+    background:#ff4f91;
+    color:white;
+    padding:15px 28px;
+    border-radius:30px;
+    font-size:17px;
+    font-weight:bold;
+    box-shadow:0 8px 20px rgba(255,79,145,.35);
+    cursor:pointer;
+}
+
+button:active{
+    transform:scale(.95);
+}
+
+#surprise{
+    display:none;
+}
+
+.title{
+    font-size:38px;
+    margin-top:35px;
+    color:#e62f78;
+    animation:pop 1s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(.5);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
+.name{
+    font-size:27px;
+    margin-top:10px;
+}
+
+.nicknames{
+    margin:18px 0 25px;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.card{
+    background:rgba(255,255,255,.75);
+    border-radius:25px;
+    padding:25px;
+    margin:25px 0;
+    box-shadow:0 10px 30px rgba(180,50,100,.15);
+    backdrop-filter:blur(5px);
+}
+
+.card h2{
+    color:#e62f78;
+    margin-bottom:15px;
+}
+
+.message{
+    font-size:17px;
+    line-height:1.8;
+}
+
+.photos{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:20px;
+}
+
+.photos img{
+    width:100%;
+    max-height:430px;
+    object-fit:cover;
+    border-radius:20px;
+    border:5px solid white;
+    box-shadow:0 8px 20px rgba(150,40,90,.18);
+}
+
+.surprise-box{
+    display:none;
+    margin-top:25px;
+    animation:pop .7s ease;
+}
+
+.final-message{
+    font-size:18px;
+    line-height:1.9;
+}
+
+.footer{
+    margin-top:35px;
+    font-size:14px;
+    opacity:.7;
+}
+
+.confetti{
+    position:fixed;
+    top:-20px;
+    font-size:20px;
+    animation:fall 4s linear forwards;
+    z-index:10;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+<div class="heart" style="left:8%;animation-delay:0s;">♥</div>
+<div class="heart" style="left:25%;animation-delay:2s;">♡</div>
+<div class="heart" style="left:45%;animation-delay:4s;">♥</div>
+<div class="heart" style="left:65%;animation-delay:1s;">♡</div>
+<div class="heart" style="left:85%;animation-delay:3s;">♥</div>
+
+<div class="container">
+
+    <!-- Opening -->
+    <section class="opening" id="opening">
+
+        <div class="gift">🎁</div>
+
+        <h1>Someone has a little surprise for you...</h1>
+
+        <p>
+            Eshal Noor, this little surprise is made especially for you. 💗
+        </p>
+
+        <button onclick="openSurprise()">
+            Open Your Surprise 💕
+        </button>
+
+    </section>
+
+
+    <!-- Main surprise -->
+    <section id="surprise">
+
+        <div class="gift">🎂</div>
+
+        <h1 class="title">
+            Happy Birthday! 💗
+        </h1>
+
+        <h2 class="name">
+            Eshal Noor 🌸
+        </h2>
+
+        <div class="nicknames">
+            Janaww 🩷<br>
+            Moti 🌸<br>
+            Gulaboo 💕
+        </div>
+
+
+        <!-- Message -->
+        <div class="card">
+
+            <h2>For You 💌</h2>
+
+            <p class="message">
+                Janaww, aaj ka din tumhare liye bohat special hai,
+                aur main dil se dua karta hoon ke tumhari zindagi
+                hamesha khushiyon se bhari rahe. 🩷
+                <br><br>
+
+                Moti, tumhari smile hamesha aisi hi pyari rahe
+                aur tumhari life mein har naya din apne saath
+                kuch beautiful lekar aaye. 🌸
+                <br><br>
+
+                Gulaboo, tumhara birthday mere liye bhi ek
+                beautiful reminder hai ke duniya mein kuch log
+                waqai bohat special hote hain. 💕
+                <br><br>
+
+                <b>Happy Birthday Eshal Noor! 🎂✨</b>
+            </p>
+
+        </div>
+
+
+        <!-- Photos -->
+        <div class="card">
+
+            <h2>Some Special Memories 📸</h2>
+
+            <div class="photos">
+
+                <img src="photo1.jpg" alt="Memory 1">
+
+                <img src="photo2.jpg" alt="Memory 2">
+
+                <img src="photo3.jpg" alt="Memory 3">
+
+            </div>
+
+        </div>
+
+
+        <!-- Final surprise -->
+        <div class="card">
+
+            <button onclick="showFinal()">
+                One More Surprise 💝
+            </button>
+
+            <div class="surprise-box" id="finalBox">
+
+                <h2>Just One More Thing... 🥹💗</h2>
+
+                <p class="final-message">
+                    I hope tumhara ye birthday tumhare liye
+                    bohat saari beautiful memories lekar aaye.
+                    <br><br>
+
+                    Hamesha khush rehna, hamesha smile karti rehna,
+                    aur apni cute si personality kabhi change mat karna. 🌸
+                    <br><br>
+
+                    <b>Happy Birthday, Janaww! 🎂🩷</b>
+                    <br>
+                    From someone who wishes the best for you. 💕
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="footer">
+            Made with lots of good wishes for Eshal Noor 🌸
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+function openSurprise(){
+
+    document.getElementById("opening").style.display="none";
+    document.getElementById("surprise").style.display="block";
+
+    createConfetti();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+function showFinal(){
+
+    document.getElementById("finalBox").style.display="block";
+
+    createConfetti();
+
+    setTimeout(function(){
+        document.getElementById("finalBox").scrollIntoView({
+            behavior:"smooth"
+        });
+    },200);
+}
+
+function createConfetti(){
+
+    const items=["💗","💕","🌸","✨","🎀","💖"];
+
+    for(let i=0;i<35;i++){
+
+        let confetti=document.createElement("div");
+
+        confetti.className="confetti";
+
+        confetti.innerHTML=
+            items[Math.floor(Math.random()*items.length)];
+
+        confetti.style.left=
+            Math.random()*100+"vw";
+
+        confetti.style.animationDuration=
+            (2+Math.random()*3)+"s";
+
+        confetti.style.fontSize=
+            (15+Math.random()*15)+"px";
+
+        document.body.appendChild(confetti);
+
+        setTimeout(()=>{
+            confetti.remove();
+        },5000);
+    }
+}
+
+</script>
+
+</body>
+  </html>
