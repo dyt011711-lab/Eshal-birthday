@@ -13,13 +13,14 @@
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     background:linear-gradient(135deg,#ffd6e7,#fff0f6,#ffc1dc);
     min-height:100vh;
     color:#7a2148;
     overflow-x:hidden;
 }
 
+/* Floating hearts */
 .heart{
     position:fixed;
     color:#ff5c9a;
@@ -50,6 +51,7 @@ body{
     text-align:center;
 }
 
+/* Opening */
 .opening{
     min-height:100vh;
     display:flex;
@@ -59,42 +61,211 @@ body{
 }
 
 .gift{
-    font-size:85px;
+    font-size:78px;
     animation:bounce 1.5s infinite;
 }
 
 @keyframes bounce{
     0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
+    50%{transform:translateY(-13px);}
 }
 
 .opening h1{
     font-size:30px;
-    margin:20px 0 10px;
+    margin:18px 0 10px;
+    color:#e62f78;
 }
 
 .opening p{
     font-size:17px;
-    margin-bottom:30px;
+    line-height:1.7;
+    margin-bottom:25px;
 }
 
-button{
-    border:none;
-    background:#ff4f91;
-    color:white;
-    padding:15px 28px;
-    border-radius:30px;
-    font-size:17px;
+/* Quiz card */
+.quiz-card{
+    width:100%;
+    max-width:560px;
+    background:rgba(255,255,255,.88);
+    padding:25px 20px;
+    border-radius:28px;
+    box-shadow:0 10px 30px rgba(180,50,100,.18);
+}
+
+.progress{
+    font-size:14px;
+    color:#c14a78;
+    margin-bottom:16px;
+}
+
+.question{
+    font-size:21px;
+    line-height:1.5;
+    margin-bottom:22px;
     font-weight:bold;
-    box-shadow:0 8px 20px rgba(255,79,145,.35);
+}
+
+.option{
+    display:block;
+    width:100%;
+    margin:11px 0;
+    padding:15px 16px;
+    border:2px solid #ff9fc2;
+    border-radius:18px;
+    background:white;
+    color:#8a2855;
+    font-size:16px;
+    font-weight:bold;
     cursor:pointer;
+    transition:.2s;
 }
 
-button:active{
-    transform:scale(.95);
+.option:hover{
+    background:#ffe3ee;
+    transform:scale(1.02);
 }
 
-#surprise{
+.option:active{
+    transform:scale(.97);
+}
+
+/* Wrong answer */
+.wrong{
+    animation:shake .4s;
+    border-color:#ff4f91;
+}
+
+@keyframes shake{
+    0%,100%{transform:translateX(0);}
+    20%{transform:translateX(-9px);}
+    40%{transform:translateX(9px);}
+    60%{transform:translateX(-7px);}
+    80%{transform:translateX(7px);}
+}
+
+.hint{
+    min-height:28px;
+    margin-top:12px;
+    color:#e62f78;
+    font-size:15px;
+    font-weight:bold;
+}
+
+/* Correct answer screen */
+.correct-screen{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ffd6e7,#fff0f6,#ffc1dc);
+    z-index:50;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+}
+
+.big-heart{
+    font-size:100px;
+    animation:heartPop .7s ease infinite alternate;
+}
+
+@keyframes heartPop{
+    from{transform:scale(.8);}
+    to{transform:scale(1.15);}
+}
+
+.correct-screen h2{
+    color:#e62f78;
+    font-size:25px;
+    margin-top:15px;
+}
+
+/* Final transition animation */
+.final-animation{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ffd6e7,#fff0f6,#ffc1dc);
+    z-index:200;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    padding:25px;
+}
+
+.big-gift{
+    font-size:105px;
+    animation:giftOpen 1s ease-in-out infinite alternate;
+}
+
+@keyframes giftOpen{
+    from{
+        transform:scale(.8) rotate(-6deg);
+    }
+    to{
+        transform:scale(1.15) rotate(6deg);
+    }
+}
+
+.final-animation h2{
+    color:#e62f78;
+    font-size:28px;
+    margin:20px 0 10px;
+    animation:fadeIn 1s ease;
+}
+
+.final-animation p{
+    font-size:17px;
+    color:#8a2855;
+}
+
+.sparkles{
+    font-size:32px;
+    animation:sparkle 1s infinite alternate;
+}
+
+@keyframes sparkle{
+    from{
+        transform:scale(.8);
+        opacity:.5;
+    }
+    to{
+        transform:scale(1.2);
+        opacity:1;
+    }
+}
+
+.loading-hearts{
+    margin-top:25px;
+    font-size:25px;
+    letter-spacing:5px;
+    animation:heartLoad 1s infinite alternate;
+}
+
+@keyframes heartLoad{
+    from{
+        transform:scale(.9);
+        opacity:.6;
+    }
+    to{
+        transform:scale(1.15);
+        opacity:1;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Birthday page */
+.main-surprise{
     display:none;
 }
 
@@ -102,12 +273,6 @@ button:active{
     font-size:38px;
     margin-top:35px;
     color:#e62f78;
-    animation:pop 1s ease;
-}
-
-@keyframes pop{
-    from{transform:scale(.5);opacity:0;}
-    to{transform:scale(1);opacity:1;}
 }
 
 .name{
@@ -122,12 +287,11 @@ button:active{
 }
 
 .card{
-    background:rgba(255,255,255,.75);
+    background:rgba(255,255,255,.78);
     border-radius:25px;
     padding:25px;
     margin:25px 0;
     box-shadow:0 10px 30px rgba(180,50,100,.15);
-    backdrop-filter:blur(5px);
 }
 
 .card h2{
@@ -140,6 +304,7 @@ button:active{
     line-height:1.8;
 }
 
+/* Photos */
 .photos{
     display:flex;
     flex-direction:column;
@@ -156,10 +321,35 @@ button:active{
     box-shadow:0 8px 20px rgba(150,40,90,.18);
 }
 
+/* Button */
+button{
+    border:none;
+    background:#ff4f91;
+    color:white;
+    padding:15px 28px;
+    border-radius:30px;
+    font-size:17px;
+    font-weight:bold;
+    box-shadow:0 8px 20px rgba(255,79,145,.35);
+    cursor:pointer;
+}
+
+/* Final message */
 .surprise-box{
     display:none;
     margin-top:25px;
     animation:pop .7s ease;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
 }
 
 .final-message{
@@ -173,12 +363,13 @@ button:active{
     opacity:.7;
 }
 
+/* Confetti */
 .confetti{
     position:fixed;
     top:-20px;
     font-size:20px;
     animation:fall 4s linear forwards;
-    z-index:10;
+    z-index:300;
 }
 
 @keyframes fall{
@@ -198,227 +389,1259 @@ button:active{
 <div class="heart" style="left:65%;animation-delay:1s;">♡</div>
 <div class="heart" style="left:85%;animation-delay:3s;">♥</div>
 
+
 <div class="container">
 
-    <!-- Opening -->
-    <section class="opening" id="opening">
+<!-- START QUIZ -->
 
-        <div class="gift">🎁</div>
+<section class="opening" id="opening">
 
-        <h1>Someone has a little surprise for you...</h1>
+<div class="gift">🎀</div>
 
-        <p>
-            Eshal Noor, this little surprise is made especially for you. 💗
-        </p>
+<h1>Oye Moti... 👀🩷</h1>
 
-        <button onclick="openSurprise()">
-            Open Your Surprise 💕
-        </button>
+<p>
+3 cute se questions hain tumhare liye 🤭😋
+<br>
+Dekhte hain tum mujhe kitna jaanti ho... 💕
+</p>
 
-    </section>
+<div class="quiz-card" id="quizCard">
 
+<div class="progress" id="progress">
+Question 1 of 3 💗
+</div>
 
-    <!-- Main surprise -->
-    <section id="surprise">
+<div class="question" id="question"></div>
 
-        <div class="gift">🎂</div>
+<div id="options"></div>
 
-        <h1 class="title">
-            Happy Birthday! 💗
-        </h1>
+<div class="hint" id="hint"></div>
 
-        <h2 class="name">
-            Eshal Noor 🌸
-        </h2>
+</div>
 
-        <div class="nicknames">
-            Janaww 🩷<br>
-            Moti 🌸<br>
-            Gulaboo 💕
-        </div>
+</section>
 
 
-        <!-- Message -->
-        <div class="card">
+<!-- CORRECT ANSWER ANIMATION -->
 
-            <h2>For You 💌</h2>
+<div class="correct-screen" id="correctScreen">
 
-            <p class="message">
-                Janaww, aaj ka din tumhare liye bohat special hai,
-                aur main dil se dua karta hoon ke tumhari zindagi
-                hamesha khushiyon se bhari rahe. 🩷
-                <br><br>
+<div class="big-heart">❤️</div>
 
-                Moti, tumhari smile hamesha aisi hi pyari rahe
-                aur tumhari life mein har naya din apne saath
-                kuch beautiful lekar aaye. 🌸
-                <br><br>
+<h2>Yesss! Bilkul sahi 😭🩷</h2>
 
-                Gulaboo, tumhara birthday mere liye bhi ek
-                beautiful reminder hai ke duniya mein kuch log
-                waqai bohat special hote hain. 💕
-                <br><br>
-
-                <b>Happy Birthday Eshal Noor! 🎂✨</b>
-            </p>
-
-        </div>
+</div>
 
 
-        <!-- Photos -->
-        <div class="card">
+<!-- FINAL UNLOCK ANIMATION -->
 
-            <h2>Some Special Memories 📸</h2>
+<div class="final-animation" id="finalAnimation">
 
-            <div class="photos">
+<div class="sparkles">✨ 💗 ✨</div>
 
-                <img src="./IMG_20260819_001023.png" alt="Memory 1">
-<img src="./Screenshot_20260819-000650.png" alt="Memory 2">
-<img src="./Screenshot_20260819-000729.png" alt="Memory 3">
+<div class="big-gift">🎁</div>
 
-                
+<h2>Surprise Unlocked! 🥹🩷</h2>
 
-                
+<p>Your special birthday surprise is ready...</p>
 
-                
+<div class="loading-hearts">
+❤️ 💕 💗 💖 💕 ❤️
+</div>
 
-                
-
-            </div>
-
-        </div>
+</div>
 
 
-        <!-- Final surprise -->
-        <div class="card">
+<!-- BIRTHDAY SURPRISE -->
 
-            <button onclick="showFinal()">
-                One More Surprise 💝
-            </button>
+<section class="main-surprise" id="surprise">
 
-            <div class="surprise-box" id="finalBox">
+<div class="gift">🎂</div>
 
-                <h2>Just One More Thing... 🥹💗</h2>
+<h1 class="title">
+Happy Birthday! 💗
+</h1>
 
-<p class="final-message">
+<h2 class="name">
+Eshal Noor 🌸
+</h2>
 
-    Hayee Moti, aur kitne surprise chahiye?
-    Ye kaafi nahi hai kya pagloo 🤭😋
+<div class="nicknames">
+Janaww 🩷<br>
+Moti 🌸<br>
+Gulaboo 💕
+</div>
 
-    <br><br>
 
-    Lekin chalo, aapke naam ek sher hai:
+<!-- Birthday message -->
 
-    <br><br>
+<div class="card">
 
-    <i>
-    Zindagi ki har ek saans tumhare naam karte hain,<br>
-    Khuda se har pal bas tumhari khushi ki dua karte hain. 🫂😌❣️
-    </i>
+<h2>For You 💌</h2>
 
-    <br><br>
+<p class="message">
 
-    Janaww, haq to aapka is se zyada ka banta tha,
-    but ye meri taraf se chhota sa gift accept kar lo.
-    Inshallah kuch aur bhi heavy scene banaunga. 🩷
+Janaww, aaj ka din tumhare liye bohat special hai,
+aur main dil se dua karta hoon ke tumhari zindagi
+hamesha khushiyon se bhari rahe. 🩷
 
-    <br><br>
+<br><br>
 
-    Bas yunhi meri zindagi mein hamesha muskurati rehna,
-    kyunki tumhari ek smile meri bohat si khushiyon ki wajah hai. 🫂❣️
+Moti, tumhari smile hamesha aisi hi pyari rahe
+aur tumhari life mein har naya din apne saath
+kuch beautiful lekar aaye. 🌸
 
-    <br><br>
+<br><br>
 
-    <b>Happy Birthday, Janaww! 🎂🩷</b>
+Gulaboo, tumhara birthday mere liye bhi ek
+beautiful reminder hai ke duniya mein kuch log
+waqai bohat special hote hain. 💕
+
+<br><br>
+
+<b>Happy Birthday Eshal Noor! 🎂✨</b>
 
 </p>
 
-                
-                    
-                    
-                    
+</div>
 
-                
-                    
-                    
 
-                    
-                    
-                    
-            
+<!-- Photos -->
 
-            </div>
+<div class="card">
 
-        </div>
+<h2>Some Special Memories 📸</h2>
 
-        <div class="footer">
-            Made with lots of good wishes for Eshal Noor 🌸
-        </div>
+<div class="photos">
 
-    </section>
+<img src="./IMG_20260819_001023.png" alt="Memory 1">
+
+<img src="./Screenshot_20260819-000650.png" alt="Memory 2">
+
+<img src="./Screenshot_20260819-000729.png" alt="Memory 3">
+
+</div>
+
+</div>
+
+
+<!-- Personal final message -->
+
+<div class="card">
+
+<button onclick="showFinal()">
+One More Surprise 💝
+</button>
+
+<div class="surprise-box" id="finalBox">
+
+<h2>Just One More Thing... 🥹💗</h2>
+
+<p class="final-message">
+
+Hayee Moti, aur kitne surprise chahiye?
+Ye kaafi nahi hai kya pagloo 🤭😋
+
+<br><br>
+
+Lekin chalo, aapke naam ek sher hai:
+
+<br><br>
+
+<i>
+Zindagi ki har ek saans tumhare naam karte hain,<br>
+Khuda se har pal bas tumhari khushi ki dua karte hain. 🫂😌❣️
+</i>
+
+<br><br>
+
+Janaww, haq to aapka is se zyada ka banta tha,
+but ye meri taraf se chhota sa gift accept kar lo.
+Inshallah kuch aur bhi heavy scene banaunga. 🩷
+
+<br><br>
+
+Bas yunhi meri zindagi mein hamesha muskurati rehna,
+kyunki tumhari ek smile meri bohat si khushiyon ki wajah hai. 🫂❣️
+
+<br><br>
+
+<b>Happy Birthday, Janaww! 🎂🩷</b>
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+Made with lots of good wishes for Eshal Noor 🌸
+</div>
+
+</section>
 
 </div>
 
 
 <script>
 
-function openSurprise(){
+/* QUESTIONS */
 
-    document.getElementById("opening").style.display="none";
-    document.getElementById("surprise").style.display="block";
+const questions = [
 
-    createConfetti();
+{
+question:"Apko mei kis nickname sy zyada bolata hon 💃❤️",
+options:[
+"1: Moti",
+"2: Janaww",
+"3: Gulabo"
+],
+correct:0
+},
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+{
+question:"Mera birthday kb ata hai 🤭😋",
+options:[
+"1: 28 December, 2006",
+"2: 28 December, 2007",
+"3: 28 December, 2008"
+],
+correct:1
+},
+
+{
+question:"Moti zyada pyar karthi hai motuu sy ya motuu zyada pyar kartha hai motii sy 😘😚",
+options:[
+"1: Koi bhee zyada nhi kartha",
+"2: Motii zyada karthi hai motuu sy",
+"3: Motuu zyada kartha hai motiii sy"
+],
+correct:1
 }
 
-function showFinal(){
+];
 
-    document.getElementById("finalBox").style.display="block";
+let currentQuestion=0;
 
-    createConfetti();
 
-    setTimeout(function(){
-        document.getElementById("finalBox").scrollIntoView({
-            behavior:"smooth"
-        });
-    },200);
+/* LOAD QUESTION */
+
+function loadQuestion(){
+
+document.getElementById("progress").innerHTML=
+"Question "+(currentQuestion+1)+" of 3 💗";
+
+document.getElementById("question").innerHTML=
+questions[currentQuestion].question;
+
+const optionsDiv=document.getElementById("options");
+
+optionsDiv.innerHTML="";
+
+document.getElementById("hint").innerHTML="";
+
+
+questions[currentQuestion].options.forEach((option,index)=>{
+
+const button=document.createElement("button");
+
+button.className="option";
+
+button.innerHTML=option;
+
+button.onclick=function(){
+
+checkAnswer(index,button);
+
+};
+
+optionsDiv.appendChild(button);
+
+});
+
 }
+
+
+/* CHECK ANSWER */
+
+function checkAnswer(index,button){
+
+/* WRONG ANSWER */
+
+if(index !== questions[currentQuestion].correct){
+
+button.classList.add("wrong");
+
+document.getElementById("hint").innerHTML=
+"Hayeee ghalat answer 😭😂 Dobara try karo! 💗";
+
+setTimeout(function(){
+
+button.classList.remove("wrong");
+
+},500);
+
+return;
+
+}
+
+
+/* CORRECT ANSWER */
+
+document.getElementById("hint").innerHTML="";
+
+createConfetti();
+
+document.getElementById("correctScreen").style.display="flex";
+
+
+setTimeout(function(){
+
+document.getElementById("correctScreen").style.display="none";
+
+currentQuestion++;
+
+
+/* NEXT QUESTION */
+
+if(currentQuestion < questions.length){
+
+loadQuestion();
+
+}
+
+
+/* ALL 3 CORRECT */
+
+else{
+
+/* Show final unlock animation */
+
+document.getElementById("finalAnimation").style.display="flex";
+
+createConfetti();
+
+
+/* After animation open birthday page */
+
+setTimeout(function(){
+
+document.getElementById("finalAnimation").style.display="none";
+
+document.getElementById("opening").style.display="none";
+
+document.getElementById("surprise").style.display="block";
+
+createConfetti();
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+},4000);
+
+}
+
+},1400);
+
+}
+
+
+/* CONFETTI */
 
 function createConfetti(){
 
-    const items=["💗","💕","🌸","✨","🎀","💖"];
+const items=[
+"❤️",
+"💗",
+"💕",
+"🌸",
+"✨",
+"🎀",
+"💖"
+];
 
-    for(let i=0;i<35;i++){
+for(let i=0;i<35;i++){
 
-        let confetti=document.createElement("div");
+let confetti=document.createElement("div");
 
-        confetti.className="confetti";
+confetti.className="confetti";
 
-        confetti.innerHTML=
-            items[Math.floor(Math.random()*items.length)];
+confetti.innerHTML=
+items[Math.floor(Math.random()*items.length)];
 
-        confetti.style.left=
-            Math.random()*100+"vw";
+confetti.style.left=
+Math.random()*100+"vw";
 
-        confetti.style.animationDuration=
-            (2+Math.random()*3)+"s";
+confetti.style.animationDuration=
+(2+Math.random()*3)+"s";
 
-        confetti.style.fontSize=
-            (15+Math.random()*15)+"px";
+confetti.style.fontSize=
+(15+Math.random()*15)+"px";
 
-        document.body.appendChild(confetti);
+document.body.appendChild(confetti);
 
-        setTimeout(()=>{
-            confetti.remove();
-        },5000);
-    }
+setTimeout(()=>{
+
+confetti.remove();
+
+},5000);
+
 }
+
+}
+
+
+/* FINAL PERSONAL MESSAGE */
+
+function showFinal(){
+
+document.getElementById("finalBox").style.display="block";
+
+createConfetti();
+
+setTimeout(function(){
+
+document.getElementById("finalBox").scrollIntoView({
+behavior:"smooth"
+});
+
+},200);
+
+}
+
+
+/* START WITH QUESTION 1 */
+
+loadQuestion();
 
 </script>
 
 </body>
-  </html>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Eshal Noor 💗</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#ffd6e7,#fff0f6,#ffc1dc);
+    min-height:100vh;
+    color:#7a2148;
+    overflow-x:hidden;
+}
+
+/* Floating hearts */
+.heart{
+    position:fixed;
+    color:#ff5c9a;
+    font-size:22px;
+    animation:float 7s linear infinite;
+    opacity:.7;
+    z-index:0;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh) rotate(0deg);
+        opacity:0;
+    }
+    20%{opacity:.8;}
+    100%{
+        transform:translateY(-10vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    margin:auto;
+    padding:25px 18px 50px;
+    text-align:center;
+}
+
+/* Opening */
+.opening{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.gift{
+    font-size:78px;
+    animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-13px);}
+}
+
+.opening h1{
+    font-size:30px;
+    margin:18px 0 10px;
+    color:#e62f78;
+}
+
+.opening p{
+    font-size:17px;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+/* Quiz card */
+.quiz-card{
+    width:100%;
+    max-width:560px;
+    background:rgba(255,255,255,.88);
+    padding:25px 20px;
+    border-radius:28px;
+    box-shadow:0 10px 30px rgba(180,50,100,.18);
+}
+
+.progress{
+    font-size:14px;
+    color:#c14a78;
+    margin-bottom:16px;
+}
+
+.question{
+    font-size:21px;
+    line-height:1.5;
+    margin-bottom:22px;
+    font-weight:bold;
+}
+
+.option{
+    display:block;
+    width:100%;
+    margin:11px 0;
+    padding:15px 16px;
+    border:2px solid #ff9fc2;
+    border-radius:18px;
+    background:white;
+    color:#8a2855;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option:hover{
+    background:#ffe3ee;
+    transform:scale(1.02);
+}
+
+.option:active{
+    transform:scale(.97);
+}
+
+/* Wrong answer */
+.wrong{
+    animation:shake .4s;
+    border-color:#ff4f91;
+}
+
+@keyframes shake{
+    0%,100%{transform:translateX(0);}
+    20%{transform:translateX(-9px);}
+    40%{transform:translateX(9px);}
+    60%{transform:translateX(-7px);}
+    80%{transform:translateX(7px);}
+}
+
+.hint{
+    min-height:28px;
+    margin-top:12px;
+    color:#e62f78;
+    font-size:15px;
+    font-weight:bold;
+}
+
+/* Correct answer screen */
+.correct-screen{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ffd6e7,#fff0f6,#ffc1dc);
+    z-index:50;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+}
+
+.big-heart{
+    font-size:100px;
+    animation:heartPop .7s ease infinite alternate;
+}
+
+@keyframes heartPop{
+    from{transform:scale(.8);}
+    to{transform:scale(1.15);}
+}
+
+.correct-screen h2{
+    color:#e62f78;
+    font-size:25px;
+    margin-top:15px;
+}
+
+/* Final transition animation */
+.final-animation{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#ffd6e7,#fff0f6,#ffc1dc);
+    z-index:200;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    text-align:center;
+    padding:25px;
+}
+
+.big-gift{
+    font-size:105px;
+    animation:giftOpen 1s ease-in-out infinite alternate;
+}
+
+@keyframes giftOpen{
+    from{
+        transform:scale(.8) rotate(-6deg);
+    }
+    to{
+        transform:scale(1.15) rotate(6deg);
+    }
+}
+
+.final-animation h2{
+    color:#e62f78;
+    font-size:28px;
+    margin:20px 0 10px;
+    animation:fadeIn 1s ease;
+}
+
+.final-animation p{
+    font-size:17px;
+    color:#8a2855;
+}
+
+.sparkles{
+    font-size:32px;
+    animation:sparkle 1s infinite alternate;
+}
+
+@keyframes sparkle{
+    from{
+        transform:scale(.8);
+        opacity:.5;
+    }
+    to{
+        transform:scale(1.2);
+        opacity:1;
+    }
+}
+
+.loading-hearts{
+    margin-top:25px;
+    font-size:25px;
+    letter-spacing:5px;
+    animation:heartLoad 1s infinite alternate;
+}
+
+@keyframes heartLoad{
+    from{
+        transform:scale(.9);
+        opacity:.6;
+    }
+    to{
+        transform:scale(1.15);
+        opacity:1;
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Birthday page */
+.main-surprise{
+    display:none;
+}
+
+.title{
+    font-size:38px;
+    margin-top:35px;
+    color:#e62f78;
+}
+
+.name{
+    font-size:27px;
+    margin-top:10px;
+}
+
+.nicknames{
+    margin:18px 0 25px;
+    font-size:20px;
+    line-height:1.8;
+}
+
+.card{
+    background:rgba(255,255,255,.78);
+    border-radius:25px;
+    padding:25px;
+    margin:25px 0;
+    box-shadow:0 10px 30px rgba(180,50,100,.15);
+}
+
+.card h2{
+    color:#e62f78;
+    margin-bottom:15px;
+}
+
+.message{
+    font-size:17px;
+    line-height:1.8;
+}
+
+/* Photos */
+.photos{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:20px;
+}
+
+.photos img{
+    width:100%;
+    max-height:430px;
+    object-fit:cover;
+    border-radius:20px;
+    border:5px solid white;
+    box-shadow:0 8px 20px rgba(150,40,90,.18);
+}
+
+/* Button */
+button{
+    border:none;
+    background:#ff4f91;
+    color:white;
+    padding:15px 28px;
+    border-radius:30px;
+    font-size:17px;
+    font-weight:bold;
+    box-shadow:0 8px 20px rgba(255,79,145,.35);
+    cursor:pointer;
+}
+
+/* Final message */
+.surprise-box{
+    display:none;
+    margin-top:25px;
+    animation:pop .7s ease;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.final-message{
+    font-size:18px;
+    line-height:1.9;
+}
+
+.footer{
+    margin-top:35px;
+    font-size:14px;
+    opacity:.7;
+}
+
+/* Confetti */
+.confetti{
+    position:fixed;
+    top:-20px;
+    font-size:20px;
+    animation:fall 4s linear forwards;
+    z-index:300;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+<div class="heart" style="left:8%;animation-delay:0s;">♥</div>
+<div class="heart" style="left:25%;animation-delay:2s;">♡</div>
+<div class="heart" style="left:45%;animation-delay:4s;">♥</div>
+<div class="heart" style="left:65%;animation-delay:1s;">♡</div>
+<div class="heart" style="left:85%;animation-delay:3s;">♥</div>
+
+
+<div class="container">
+
+<!-- START QUIZ -->
+
+<section class="opening" id="opening">
+
+<div class="gift">🎀</div>
+
+<h1>Oye Moti... 👀🩷</h1>
+
+<p>
+3 cute se questions hain tumhare liye 🤭😋
+<br>
+Dekhte hain tum mujhe kitna jaanti ho... 💕
+</p>
+
+<div class="quiz-card" id="quizCard">
+
+<div class="progress" id="progress">
+Question 1 of 3 💗
+</div>
+
+<div class="question" id="question"></div>
+
+<div id="options"></div>
+
+<div class="hint" id="hint"></div>
+
+</div>
+
+</section>
+
+
+<!-- CORRECT ANSWER ANIMATION -->
+
+<div class="correct-screen" id="correctScreen">
+
+<div class="big-heart">❤️</div>
+
+<h2>Yesss! Bilkul sahi 😭🩷</h2>
+
+</div>
+
+
+<!-- FINAL UNLOCK ANIMATION -->
+
+<div class="final-animation" id="finalAnimation">
+
+<div class="sparkles">✨ 💗 ✨</div>
+
+<div class="big-gift">🎁</div>
+
+<h2>Surprise Unlocked! 🥹🩷</h2>
+
+<p>Your special birthday surprise is ready...</p>
+
+<div class="loading-hearts">
+❤️ 💕 💗 💖 💕 ❤️
+</div>
+
+</div>
+
+
+<!-- BIRTHDAY SURPRISE -->
+
+<section class="main-surprise" id="surprise">
+
+<div class="gift">🎂</div>
+
+<h1 class="title">
+Happy Birthday! 💗
+</h1>
+
+<h2 class="name">
+Eshal Noor 🌸
+</h2>
+
+<div class="nicknames">
+Janaww 🩷<br>
+Moti 🌸<br>
+Gulaboo 💕
+</div>
+
+
+<!-- Birthday message -->
+
+<div class="card">
+
+<h2>For You 💌</h2>
+
+<p class="message">
+
+Janaww, aaj ka din tumhare liye bohat special hai,
+aur main dil se dua karta hoon ke tumhari zindagi
+hamesha khushiyon se bhari rahe. 🩷
+
+<br><br>
+
+Moti, tumhari smile hamesha aisi hi pyari rahe
+aur tumhari life mein har naya din apne saath
+kuch beautiful lekar aaye. 🌸
+
+<br><br>
+
+Gulaboo, tumhara birthday mere liye bhi ek
+beautiful reminder hai ke duniya mein kuch log
+waqai bohat special hote hain. 💕
+
+<br><br>
+
+<b>Happy Birthday Eshal Noor! 🎂✨</b>
+
+</p>
+
+</div>
+
+
+<!-- Photos -->
+
+<div class="card">
+
+<h2>Some Special Memories 📸</h2>
+
+<div class="photos">
+
+<img src="./IMG_20260819_001023.png" alt="Memory 1">
+
+<img src="./Screenshot_20260819-000650.png" alt="Memory 2">
+
+<img src="./Screenshot_20260819-000729.png" alt="Memory 3">
+
+</div>
+
+</div>
+
+
+<!-- Personal final message -->
+
+<div class="card">
+
+<button onclick="showFinal()">
+One More Surprise 💝
+</button>
+
+<div class="surprise-box" id="finalBox">
+
+<h2>Just One More Thing... 🥹💗</h2>
+
+<p class="final-message">
+
+Hayee Moti, aur kitne surprise chahiye?
+Ye kaafi nahi hai kya pagloo 🤭😋
+
+<br><br>
+
+Lekin chalo, aapke naam ek sher hai:
+
+<br><br>
+
+<i>
+Zindagi ki har ek saans tumhare naam karte hain,<br>
+Khuda se har pal bas tumhari khushi ki dua karte hain. 🫂😌❣️
+</i>
+
+<br><br>
+
+Janaww, haq to aapka is se zyada ka banta tha,
+but ye meri taraf se chhota sa gift accept kar lo.
+Inshallah kuch aur bhi heavy scene banaunga. 🩷
+
+<br><br>
+
+Bas yunhi meri zindagi mein hamesha muskurati rehna,
+kyunki tumhari ek smile meri bohat si khushiyon ki wajah hai. 🫂❣️
+
+<br><br>
+
+<b>Happy Birthday, Janaww! 🎂🩷</b>
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="footer">
+Made with lots of good wishes for Eshal Noor 🌸
+</div>
+
+</section>
+
+</div>
+
+
+<script>
+
+/* QUESTIONS */
+
+const questions = [
+
+{
+question:"Apko mei kis nickname sy zyada bolata hon 💃❤️",
+options:[
+"1: Moti",
+"2: Janaww",
+"3: Gulabo"
+],
+correct:0
+},
+
+{
+question:"Mera birthday kb ata hai 🤭😋",
+options:[
+"1: 28 December, 2006",
+"2: 28 December, 2007",
+"3: 28 December, 2008"
+],
+correct:1
+},
+
+{
+question:"Moti zyada pyar karthi hai motuu sy ya motuu zyada pyar kartha hai motii sy 😘😚",
+options:[
+"1: Koi bhee zyada nhi kartha",
+"2: Motii zyada karthi hai motuu sy",
+"3: Motuu zyada kartha hai motiii sy"
+],
+correct:1
+}
+
+];
+
+let currentQuestion=0;
+
+
+/* LOAD QUESTION */
+
+function loadQuestion(){
+
+document.getElementById("progress").innerHTML=
+"Question "+(currentQuestion+1)+" of 3 💗";
+
+document.getElementById("question").innerHTML=
+questions[currentQuestion].question;
+
+const optionsDiv=document.getElementById("options");
+
+optionsDiv.innerHTML="";
+
+document.getElementById("hint").innerHTML="";
+
+
+questions[currentQuestion].options.forEach((option,index)=>{
+
+const button=document.createElement("button");
+
+button.className="option";
+
+button.innerHTML=option;
+
+button.onclick=function(){
+
+checkAnswer(index,button);
+
+};
+
+optionsDiv.appendChild(button);
+
+});
+
+}
+
+
+/* CHECK ANSWER */
+
+function checkAnswer(index,button){
+
+/* WRONG ANSWER */
+
+if(index !== questions[currentQuestion].correct){
+
+button.classList.add("wrong");
+
+document.getElementById("hint").innerHTML=
+"Hayeee ghalat answer 😭😂 Dobara try karo! 💗";
+
+setTimeout(function(){
+
+button.classList.remove("wrong");
+
+},500);
+
+return;
+
+}
+
+
+/* CORRECT ANSWER */
+
+document.getElementById("hint").innerHTML="";
+
+createConfetti();
+
+document.getElementById("correctScreen").style.display="flex";
+
+
+setTimeout(function(){
+
+document.getElementById("correctScreen").style.display="none";
+
+currentQuestion++;
+
+
+/* NEXT QUESTION */
+
+if(currentQuestion < questions.length){
+
+loadQuestion();
+
+}
+
+
+/* ALL 3 CORRECT */
+
+else{
+
+/* Show final unlock animation */
+
+document.getElementById("finalAnimation").style.display="flex";
+
+createConfetti();
+
+
+/* After animation open birthday page */
+
+setTimeout(function(){
+
+document.getElementById("finalAnimation").style.display="none";
+
+document.getElementById("opening").style.display="none";
+
+document.getElementById("surprise").style.display="block";
+
+createConfetti();
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+},4000);
+
+}
+
+},1400);
+
+}
+
+
+/* CONFETTI */
+
+function createConfetti(){
+
+const items=[
+"❤️",
+"💗",
+"💕",
+"🌸",
+"✨",
+"🎀",
+"💖"
+];
+
+for(let i=0;i<35;i++){
+
+let confetti=document.createElement("div");
+
+confetti.className="confetti";
+
+confetti.innerHTML=
+items[Math.floor(Math.random()*items.length)];
+
+confetti.style.left=
+Math.random()*100+"vw";
+
+confetti.style.animationDuration=
+(2+Math.random()*3)+"s";
+
+confetti.style.fontSize=
+(15+Math.random()*15)+"px";
+
+document.body.appendChild(confetti);
+
+setTimeout(()=>{
+
+confetti.remove();
+
+},5000);
+
+}
+
+}
+
+
+/* FINAL PERSONAL MESSAGE */
+
+function showFinal(){
+
+document.getElementById("finalBox").style.display="block";
+
+createConfetti();
+
+setTimeout(function(){
+
+document.getElementById("finalBox").scrollIntoView({
+behavior:"smooth"
+});
+
+},200);
+
+}
+
+
+/* START WITH QUESTION 1 */
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
